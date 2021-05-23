@@ -3,7 +3,9 @@ import Link from 'next/link';
 
 export const getStaticPaths = async () => {
     try {
-        const { data } = await axios.get('http://localhost:3000/api/users');
+        const { data } = await axios.get(
+            'https://jsonplaceholder.typicode.com/users'
+        );
         const paths = data.map((user) => {
             return {
                 params: { id: user.id.toString() },
@@ -22,7 +24,7 @@ export const getStaticProps = async (context) => {
     const id = context.params.id;
     try {
         const { data } = await axios.get(
-            `http://localhost:3000/api/users/${id}`
+            `https://jsonplaceholder.typicode.com/users/${id}`
         );
         return {
             props: { user: data },
