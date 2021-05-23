@@ -4,7 +4,9 @@ import axios from 'axios';
 
 export const getStaticProps = async () => {
     try {
-        const { data } = await axios.get('http://localhost:3000/api/users');
+        const { data } = await axios.get(
+            'https://jsonplaceholder.typicode.com/users'
+        );
         return {
             props: { users: data },
         };
