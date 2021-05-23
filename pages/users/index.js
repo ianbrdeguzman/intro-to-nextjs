@@ -4,9 +4,7 @@ import axios from 'axios';
 
 export const getStaticProps = async () => {
     try {
-        const { data } = await axios.get(
-            'https://intro-to-nextjs-kzawa4wbp-ianbrdeguzman.vercel.app/api/users'
-        );
+        const { data } = await axios.get('http://localhost:3000/api/users');
         return {
             props: { users: data },
         };
@@ -28,7 +26,7 @@ const Users = ({ users }) => {
                         return (
                             <div
                                 key={user.id}
-                                className='text-xl my-4 border-l-2 hover:border-blue-500 pl-4 transition-all'
+                                className='text-xl my-4 border-l-4 border-transparent hover:border-blue-500 pl-4 transition-all'
                             >
                                 <Link href={`/users/${user.id}`}>
                                     <a>{user.name}</a>
